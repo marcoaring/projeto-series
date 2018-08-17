@@ -22,18 +22,24 @@ gulp.task('sass', function(){
         pixrem()
     ]))
     .pipe(sourcemaps.write())
-    .pipe(concat('main.css'))
-    .pipe(gulp.dest('assets/css'));
+    .pipe(concat('style.css'))
+    .pipe(gulp.dest('css'));
 });
 
 gulp.task('scripts', function(){
-    return gulp.src('js/**/*.js')
+    return gulp.src(['js/jquery.min.js', 'js/vue.min.js', 'js/app-vue.js', 'js/main.js'])
         .pipe(concat('main.js'))
         .pipe(gulp.dest('assets/js'))
 });
 
+gulp.task('css', function(){
+    return gulp.src(['css/style.css', 'css/materialize.min.css'])
+        .pipe(concat('main.css'))
+        .pipe(gulp.dest('assets/css'))
+});
+
 gulp.task('default', function(){
-    order(['sass', 'scripts'], function(){
+    order(['sass', 'css', 'scripts'], function(){
         console.log('Compilation done!');
     });
 });
