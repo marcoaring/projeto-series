@@ -1,4 +1,4 @@
-new Vue({
+let aap_vue = new Vue({
    el: ".app-vue",
    data: {
       home: [],
