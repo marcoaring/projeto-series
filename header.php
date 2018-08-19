@@ -19,12 +19,14 @@
 	</head>
 	<body <?php body_class(); ?>>
 		<div class="app-vue">
+			<?php if(is_user_logged_in()){ ?>
 			<header class="main-header blue">
 				<div class="main-header__logo"></div>
 				<div class="main-header__buttons buttons">
-					<a href="#" class="buttons__link">
+					<a href="#" class="buttons__link open-search">
 						<i class="white-text small material-icons">search</i>
 					</a>
 					<a href="#" class="buttons__link"></a>
 				</div>
 			</header>
+			<?php } ?>

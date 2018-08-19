@@ -13,3 +13,10 @@ Version: 1.0
 
 //Components
 @import "components/header";
+@import "components/home";
+@import "components/footer";
+
+body{
+	position: relative;
+	padding: 56px 0px;
+}

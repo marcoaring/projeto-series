@@ -1,6 +1,6 @@
 <?php 
-if(is_user_logged_in()){
-	get_header(); 
+get_header(); 
+	if(is_user_logged_in()){
 ?>
 
 	<main class="main-content">
@@ -21,6 +21,16 @@ if(is_user_logged_in()){
 		</div>
 	</main>
 <?php 
-	get_footer(); 
-}
+	} else{
+?>
+	<main class="main-unlogin">
+		<div class="row">
+			<h1 class="main-unlogin__title">Ops! Parece que você ainda não está logado.</h1>
+			<a href="#" class="waves-effect waves-light btn blue">Login</a>
+			<a href="#" class="waves-effect waves-light btn blue">Cadastre-se</a>
+		</div>
+	</main>
+<?php
+	}
+get_footer();
 ?>

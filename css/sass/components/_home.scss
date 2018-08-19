@@ -1,0 +1,15 @@
+.main-unlogin{
+	display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+	padding: 0px 20px;
+
+	&__title{
+		color: #eeeeee;
+		font-size: 38px;
+		margin-bottom: 30px;
+	}
+
+	.waves-effect{ margin-right: 15px; }
+}
