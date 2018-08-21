@@ -11,7 +11,7 @@
 
 	  	<link rel="pingback" href="<?php bloginfo('pingback_url'); ?>" />
 	  	
-		<link href="<?php echo get_template_directory_uri(); ?>/assets/css/vendors.min.css" rel="stylesheet">
+		<link href="<?php echo get_template_directory_uri(); ?>/assets/css/vendor.css" rel="stylesheet">
 
 		<link rel="stylesheet" href="<?php bloginfo('stylesheet_url'); ?>">
 

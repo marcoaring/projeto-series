@@ -1,41 +1,36 @@
 {
   "name": "projeto-series",
   "version": "1.0.0",
-  "description": "",
-  "main": "gulpfile.js",
+  "description": "Projeto para a criação de um APP gerenciador de séries e filmes",
+  "main": "gulfile.js",
   "dependencies": {},
   "devDependencies": {
-    "gulp": "github:gulpjs/gulp#4.0",
-    "gulp-autoprefixer": "^5.0.0",
+    "autoprefixer": "^9.1.2",
+    "babel-core": "^6.26.3",
+    "babel-preset-env": "^1.7.0",
+    "gulp": "^3.9.1",
+    "gulp-babel": "^7.0.1",
     "gulp-cache": "^1.0.2",
     "gulp-concat": "^2.6.1",
-    "gulp-filter": "^5.1.0",
     "gulp-imagemin": "^4.1.0",
-    "gulp-line-ending-corrector": "^1.0.2",
     "gulp-merge-media-queries": "^0.2.1",
-    "gulp-notify": "^3.2.0",
-    "gulp-plumber": "^1.2.0",
-    "gulp-remember": "^1.0.1",
+    "gulp-postcss": "^8.0.0",
     "gulp-rename": "^1.4.0",
     "gulp-sass": "^4.0.1",
     "gulp-sourcemaps": "^2.6.4",
     "gulp-uglify": "^3.0.1",
-    "gulp-uglifycss": "^1.1.0"
+    "gulp-uglifycss": "^1.1.0",
+    "gulp-wait": "0.0.2",
+    "pixrem": "^4.0.1"
   },
   "scripts": {
-    "start": "gulp",
-    "vendorCSS": "gulp vendorCSS",
-    "customCSS": "gulp customCSS",
-    "vendorsJS": "gulp vendorsJS",
-    "customJS": "gulp customJS",
-    "images": "gulp images",
-    "clearCache": "gulp clearCache"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/marcoaring/projeto-series.git"
   },
-  "author": "",
+  "author": "Marco Aring",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/marcoaring/projeto-series/issues"

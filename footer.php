@@ -24,8 +24,8 @@
 			</footer>
 			<?php } ?>
 	  	</div>
-		<script src="<?php echo get_template_directory_uri(); ?>/assets/js/vendors.js"></script>
-		<script src="<?php echo get_template_directory_uri(); ?>/assets/js/custom.js"></script>
+		<script src="<?php echo get_template_directory_uri(); ?>/assets/js/vendor.js"></script>
+		<script src="<?php echo get_template_directory_uri(); ?>/assets/js/main.min.js"></script>
 		<?php wp_footer(); ?>
 	</body>
 </html>

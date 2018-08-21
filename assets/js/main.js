@@ -1,33 +1,33 @@
-let aap_vue = new Vue({
+let appVue = new Vue({
    el: ".app-vue",
    data: {
       home: [],
-      posts: [],
+      posts: []
    },
-   created: function () {
+   created: function(){
       this.loadHome();
       this.loadPosts();
    },
    methods: {
-      loadHome(){
+      loadHome: function(){
          var self = this;
          $.ajax({
             url: "http://www.omdbapi.com/?apikey=ed5d8acc&s=Agents&type=series",
-            success: function (result){
+            success: function(result){
                self.home = result;
             }
          });
       },
-      loadPosts(){
+      loadPosts: function(){
          var self = this;
          $.ajax({
             url: "http://marcoaring.com.br/clientes/pss/wp-json/wp/v2/posts",
-            success: function (result){
+            success: function(result){
                self.posts = result;
             }
          });
       }
-   },
+   }
 });
 $(document).ready(function(){
   $(document).on('click', '.main-search__close', function(){
