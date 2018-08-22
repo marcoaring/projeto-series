@@ -2,16 +2,18 @@
 	position:absolute;
 	top: 0px;
 	display: none;
-	align-items: center;
+	align-items: flex-star;
 	justify-content: center;
 	width: 100vw;
 	height: 100vh;
 	padding: 0 20px;
-	background-color: rgba(0, 0, 0, 0.7);
+	background-color: rgba(0, 0, 0, 0.85);
 	color: #ffffff;
 	z-index: 4;
 	opacity: 0;
 	transition: all 0.3s linear;
+
+	form{ width:100%; display: block; }
 
 	&__fields{
 		background: transparent;
@@ -21,7 +23,15 @@
 		border-bottom: 2px solid #ffffff;
 		width: 100%;
 		padding: 15px 10px;
-		font-size: 40px;
+		font-size: 30px !important;
+		margin-top: 10vh !important;
+		transition: all 0.3s linear;
+
+		&:focus{
+			background-color: transparent !important;
+			color: #ffffff !important;
+			border-bottom: 2px solid #ffffff !important;
+		}
 	}
 
 	::placeholder{

@@ -1,13 +1,17 @@
 			<?php if(is_user_logged_in()){ ?>
-			<div class="main-search">
-				<form action="<?php home_url('/search/')?>" method="get">
-			        <div class="input-field">
-			        	<input id="search" name="search" type="search" class="main-search__fields" placeholder="Pesquisa...">
-			        </div>
-
-			        <a href="#" class="main-search__close">
+			<div v-bind:class="[showSearch ? 'main-search--open': '', searchClass ? 'main-search' : '']">
+				<form autocomplete="off">
+					<a href="#" class="main-search__close" @click.prevent="showSearch = false">
 			        	<i class="material-icons">close</i>
 			        </a>
+
+			        <div class="input-field">
+			        	<input id="search" name="search" type="search" class="main-search__fields" placeholder="Pesquisa..." autocomplete="off" v-on:keyup="loadSearch">
+			        </div>
+
+			        <ul class="main-search__result">
+			        	<li class="main-search__item" v-for="(itemSearch, index) in searchResults.Search">{{itemSearch.Title}}</li>
+			        </ul>
 			    </form>
 			</div>
 			<footer class="main-footer blue">
@@ -24,6 +28,9 @@
 			</footer>
 			<?php } ?>
 	  	</div>
+	  	<script>
+	  		window.currentUser = <?php echo get_current_user_id(); ?>;
+	  	</script>
 		<script src="<?php echo get_template_directory_uri(); ?>/assets/js/vendor.js"></script>
 		<script src="<?php echo get_template_directory_uri(); ?>/assets/js/main.min.js"></script>
 		<?php wp_footer(); ?>

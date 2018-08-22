@@ -4,7 +4,7 @@ get_header();
 ?>
 
 	<main class="main-content">
-		<div class="row main-content__series" v-if="home.Response">
+		<div class="row main-content__series" v-if="posts.length != 0">
 			<div class="col s12 m6" v-for="(item, index) in home.Search">
 				<div class="card">
 					<div class="card-image">
@@ -19,6 +19,11 @@ get_header();
 				</div>
 			</div>
 		</div>
+
+		<div class="row main-404" v-if="posts.length == 0">
+			<h1 class="main-404__title">Você ainda não adicionou nenhuma série ou filme a sua biblioteca.</h1>
+			<a href="#" class="waves-effect waves-light btn-large blue open-search" @click.prevent="showSearch = true">Pesquisar Agora</a>
+		</div>
 	</main>
 <?php 
 	} else{
@@ -26,7 +31,7 @@ get_header();
 	<main class="main-unlogin">
 		<div class="row">
 			<h1 class="main-unlogin__title">Ops! Parece que você ainda não está logado.</h1>
-			<a href="#" class="waves-effect waves-light btn blue">Login</a>
+			<a href="<?php echo home_url('wp-admin'); ?>" class="waves-effect waves-light btn blue">Login</a>
 			<a href="#" class="waves-effect waves-light btn blue">Cadastre-se</a>
 		</div>
 	</main>

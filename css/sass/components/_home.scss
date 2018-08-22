@@ -13,3 +13,19 @@
 
 	.waves-effect{ margin-right: 15px; }
 }
+
+.main-404{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+    align-items: center;
+	text-align: center;
+	padding: 15px;
+
+	&__title{
+		color: #eeeeee;
+		font-size: 38px;
+		margin-bottom: 30px;
+		text-align: left;
+	}
+}
