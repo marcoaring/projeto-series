@@ -1,7 +1,7 @@
 			<?php if(is_user_logged_in()){ ?>
 			<div v-bind:class="[showSearch ? 'main-search--open': '', searchClass ? 'main-search' : '']">
 				<form autocomplete="off">
-					<a href="#" class="main-search__close" @click.prevent="showSearch = false">
+					<a href="#" class="main-search__close" @click.prevent="showSearch = false; $('.main-search__fields').val(''); searchResults = [];">
 			        	<i class="material-icons">close</i>
 			        </a>
 
@@ -9,9 +9,15 @@
 			        	<input id="search" name="search" type="search" class="main-search__fields" placeholder="Pesquisa..." autocomplete="off" v-on:keyup="loadSearch">
 			        </div>
 
-			        <ul class="main-search__result">
-			        	<li class="main-search__item" v-for="(itemSearch, index) in searchResults.Search">{{itemSearch.Title}}</li>
-			        </ul>
+			        <ul class="collection main-search__result" v-if="searchResults.Search">
+					    <li class="collection-item avatar main-search__item" v-if="index <= 4" v-for="(itemSearch, index) in searchResults.Search">
+					      <img :src="[itemSearch.Poster != 'N/A' ? itemSearch.Poster : '<?php echo get_template_directory_uri(); ?>/assets/img/no-picture.jpg']" alt="" class="responsive-img circle">
+					      <span class="title">{{itemSearch.Title}}</span>
+					      <p>Tipo: {{itemSearch.Type}}</p>
+					      <a href="#!" class="secondary-content blue-text"><i class="material-icons">add</i></a>
+					    </li>
+					</ul>
+					<a :href="'<?php echo home_url(); ?>/busca?s=' + searchResults.totalResults" class="waves-effect waves-light btn-large blue" v-if="searchResults.totalResults > 5">Ver Todos</a>
 			    </form>
 			</div>
 			<footer class="main-footer blue">

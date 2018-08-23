@@ -25,6 +25,14 @@ table{border-collapse:collapse;border-spacing:0}
 .main-search__close{position:absolute;display:block;top:0;right:0;padding:5px;color:#fff}
 .main-search__close .material-icons{font-size:40px}
 .main-search--open{display:-webkit-box;display:-ms-flexbox;display:flex;opacity:1}
+.main-search__result{border:0;margin-bottom:0 !important}
+.main-search__item{margin-bottom:30px !important;background:transparent !important;border:none !important;padding-left:60px !important}
+.main-search__item .circle{left:0 !important}
+.main-search__item .title{display:inline-block;width:180px;color:#0c7cd5;text-transform:uppercase;line-height:17px}
+.main-search__item p{text-transform:uppercase;font-size:12px}
+.main-search__item .secondary-content{right:0 !important}
+.main-search__item:last-child{margin-bottom:0 !important}
+.main-search .btn-large{display:block}
 .main-footer{position:fixed;bottom:0;width:100vw;z-index:2}
 .main-footer .navigation{background-color:transparent;height:auto;-webkit-box-shadow:none;box-shadow:none}
 .main-footer .navigation__list{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;text-align:center}

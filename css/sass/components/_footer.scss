@@ -62,6 +62,39 @@
 		display: flex;
 		opacity: 1;
 	}
+
+	&__result{
+		border: none;
+		margin-bottom: 0 !important;
+	}
+
+	&__item{
+		margin-bottom: 30px !important;
+		background: transparent !important;
+		border: none !important;
+		padding-left: 60px !important;
+		
+		.circle{ left: 0px !important; }
+
+		.title{
+			display: inline-block;
+			width: 180px;
+			color: #0c7cd5;
+    		text-transform: uppercase;
+    		line-height: 17px;
+		}
+
+		p{
+			text-transform: uppercase;
+    		font-size: 12px;
+		}
+
+		.secondary-content{ right: 0px !important; }
+
+		&:last-child{ margin-bottom: 0 !important; }
+	}
+
+	.btn-large{ display: block; }
 }
 
 .main-footer{
