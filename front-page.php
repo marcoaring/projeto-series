@@ -4,7 +4,7 @@ get_header();
 ?>
 
 	<main class="main-content">
-		<div class="row main-content__series" v-if="posts.length != 0">
+		<!--<div class="row main-content__series" v-if="posts.length != 0">
 			<div class="col s12 m6" v-for="(item, index) in home.Search">
 				<div class="card">
 					<div class="card-image">
@@ -18,7 +18,7 @@ get_header();
 					</div>
 				</div>
 			</div>
-		</div>
+		</div>-->
 
 		<div class="row main-404" v-if="posts.length == 0">
 			<h1 class="main-404__title">Você ainda não adicionou nenhuma série ou filme a sua biblioteca.</h1>

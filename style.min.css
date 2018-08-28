@@ -40,4 +40,5 @@ table{border-collapse:collapse;border-spacing:0}
 .main-footer .navigation__item--active,.main-footer .navigation__item:hover{background-color:#0c7cd5}
 .main-footer .navigation__link{padding:10px 15px;font-size:13px}
 .main-footer .navigation__link .material-icons{font-size:18px;height:auto;line-height:inherit;margin-bottom:5px}
+.toast{margin-bottom:66px}
 body{position:relative;padding:56px 0}
