@@ -12,7 +12,7 @@
 			        <ul class="collection main-search__result" v-if="searchResults.Search">
 					    <li class="collection-item avatar main-search__item" v-if="index <= 4" v-for="(itemSearch, index) in searchResults.Search">
 					      <img :src="[itemSearch.Poster != 'N/A' ? itemSearch.Poster : '<?php echo get_template_directory_uri(); ?>/assets/img/no-picture.jpg']" alt="" class="responsive-img circle">
-					      <a :href="'<?php echo home_url('catalogo'); ?>?id=' + itemSearch.imdbID">
+					      <a :href="'<?php echo home_url('/'); ?>catalogo?id=' + itemSearch.imdbID">
 					      	<span class="title">{{itemSearch.Title}}</span>
 					      </a>
 					      <p>Tipo: {{itemSearch.Type}}</p>

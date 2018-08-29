@@ -8,10 +8,6 @@ add_action( 'init', 'register_my_menu' );
 //Removo a barra de cima do WordPress no front
 add_filter('show_admin_bar', '__return_false');
 
-//Adiciono filtro para campos do ACF serem mostrados na REST API
-add_filter( 'acf/rest_api/field_settings/show_in_rest', '__return_true' );
-add_filter( 'acf/rest_api/field_settings/edit_in_rest', '__return_true' );
-
 // Ação de callback do Ajax
 function save_item(){
 	$urlConsult = "http://www.omdbapi.com/?apikey=ed5d8acc&i=" . $_POST['imdbId'];
@@ -23,8 +19,11 @@ function save_item(){
 		'post_author' => $_POST['author'], 
 		'post_type' => 'entretenimento'
 	));
-	update_field('id_imdb', $response->imdbID, $idPost);
-	update_field('categoria_imdb', $response->Type, $idPost);
+	update_post_meta($idPost, 'id_imdb', $response->imdbID);
+	update_post_meta($idPost, 'categoria_imdb', $response->Type);
+
+	wp_publish_post($idPost);
+	clean_post_cache($idPost);
 
 	echo (get_post_status($idPost) == 'publish') ? 'true' : 'false';
   	die();
