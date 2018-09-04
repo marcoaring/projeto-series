@@ -12,6 +12,15 @@ table{border-collapse:collapse;border-spacing:0}
 .main-unlogin .waves-effect{margin-right:15px}
 .main-404{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:vertical;-webkit-box-direction:normal;-ms-flex-direction:column;flex-direction:column;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;text-align:center;padding:15px}
 .main-404__title{color:#eee;font-size:38px;margin-bottom:30px;text-align:left}
+.catalog-content__title{font-size:2em;margin-top:12px;margin-top:.75rem;margin-bottom:15px}
+.catalog-content__img{display:block;margin:0 auto}
+.catalog-content__plot{margin:15px 0;color:#464646;font-size:1em;line-height:1.3em;letter-spacing:.8px}
+.catalog-content .main-accordion__content{border-bottom:1px solid #fff}
+.catalog-content .main-accordion__link{font-size:1.2em;display:-webkit-box;display:-ms-flexbox;display:flex;padding:15px;text-transform:uppercase;text-decoration:none;-webkit-box-pack:justify;-ms-flex-pack:justify;justify-content:space-between;-webkit-box-align:center;-ms-flex-align:center;align-items:center}
+.catalog-content .main-accordion__link .material-icons{-webkit-transform:rotate(-90deg);-ms-transform:rotate(-90deg);transform:rotate(-90deg);-webkit-transition:all .3s linear;-o-transition:all .3s linear;transition:all .3s linear}
+.catalog-content .main-accordion__episodes{overflow:hidden;height:0}
+.catalog-content .main-accordion__content--active .main-accordion__link .material-icons{-webkit-transform:rotate(90deg);-ms-transform:rotate(90deg);transform:rotate(90deg)}
+.catalog-content .main-accordion__content--active .main-accordion__episodes{height:auto;padding:15px}
 .main-search{position:absolute;top:0;display:none;-webkit-box-align:flex-star;-ms-flex-align:flex-star;align-items:flex-star;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;width:100vw;height:100vh;padding:0 20px;background-color:rgba(0,0,0,0.85);color:#fff;z-index:4;opacity:0;-webkit-transition:all .3s linear;-o-transition:all .3s linear;transition:all .3s linear}
 .main-search form{width:100%;display:block}
 .main-search__fields{background:transparent;color:#fff;border:0;outline:0;border-bottom:2px solid #fff;width:100%;padding:15px 10px;font-size:30px !important;margin-top:10vh !important;-webkit-transition:all .3s linear;-o-transition:all .3s linear;transition:all .3s linear}
