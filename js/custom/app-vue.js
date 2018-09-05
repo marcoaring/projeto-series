@@ -69,7 +69,33 @@ let appVue = new Vue({
             } else{
                 console.log('deu ruim');
             }
-            
+        },
+
+        loadSeason: function(id, season){
+            if(id && season){
+                let self = this;
+                let element = $('#season' + season + ' ul');
+
+                $.ajax({
+                    url: self.imdbApi + "i=" + id + "&Season=" + season,
+                    beforeSend: function(){
+                        element.append("<span class='loader'></span>");
+                    },
+
+                    success: function(contSeason){
+                        element.html('');
+                        $('.loader').remove();
+
+                        $.each(contSeason.Episodes, function(index, episode){
+                            element.append("<li class='main-episodes__item'><p class='main-episodes__name'>"+ episode.Title +"</p><a href='' class='main-episodes__link'><i class='small material-icons'>check</i></a></li>");
+                        });
+
+                        $('html, body').stop().animate({scrollTop: $('#season' + season).parent().offset().top - 55}, 1000);
+                    }
+                });
+            } else{
+                console.log('deu ruim');
+            }
         },
 
         addItem: function(id){

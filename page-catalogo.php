@@ -14,11 +14,13 @@ get_header();
 
 		<section class="catalog-content__accordion main-accordion">
 			<div class="main-accordion__content" v-for="season in Number(singlePost.totalSeasons)">
-				<a :href="'#season' + season" class="main-accordion__link blue white-text">
+				<a :href="'#season' + season" class="main-accordion__link blue white-text" @click.prevent="loadSeason(singlePost.imdbID, season)">
 					{{season}}ª Temporada
 					<span class="material-icons">chevron_left</span>
 				</a>
-				<div :id="'#season' + season" class="main-accordion__episodes">to aqui {{season}}</div>
+				<div :id="'season' + season" class="main-accordion__episodes">
+					<ul class="main-episodes"></ul>
+				</div>
 			</div>
 		</section>
 	</main>

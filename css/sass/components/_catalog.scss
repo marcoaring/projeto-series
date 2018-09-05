@@ -41,6 +41,15 @@
 		&__episodes{
 			overflow: hidden;
 			height: 0px;
+
+			.main-episodes{
+				&__item{
+					display: flex;
+    				justify-content: space-between;
+    				align-items: center;
+    				margin: 10px 0px;
+				}
+			}
 		}
 
 		&__content--active{
@@ -48,7 +57,7 @@
 
 			.main-accordion__episodes{
 				height: auto;
-				padding: 15px;
+				padding: 5px 15px;
 			}
 		}
 	}
