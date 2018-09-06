@@ -19,7 +19,14 @@ get_header();
 					<span class="material-icons">chevron_left</span>
 				</a>
 				<div :id="'season' + season" class="main-accordion__episodes">
-					<ul class="main-episodes"></ul>
+					<ul class="main-episodes">
+						<li class="main-episodes__item" v-for="(episode, index) in episodes">
+							<a href="" :id="episode.imdbID" @click.prevent="checkEpisode(episode.Title, episode.imdbID, season, singlePost.imdbID)" class="main-episodes__link">
+								<p class="main-episodes__name">{{episode.Title}}</p>
+								<i class="small material-icons">check</i>
+							</a>
+						</li>
+					</ul>
 				</div>
 			</div>
 		</section>

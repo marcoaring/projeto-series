@@ -4,6 +4,7 @@ let appVue = new Vue({
         searchResults: [],
         posts: [],
         singlePost: [],
+        episodes: [],
         search: '',
         showSearch: false,
         searchClass: true,
@@ -78,17 +79,18 @@ let appVue = new Vue({
 
                 $.ajax({
                     url: self.imdbApi + "i=" + id + "&Season=" + season,
-                    beforeSend: function(){
+                    /*beforeSend: function(){
                         element.append("<span class='loader'></span>");
-                    },
+                    },*/
 
                     success: function(contSeason){
-                        element.html('');
-                        $('.loader').remove();
+                        self.episodes = [];
+                        self.episodes = contSeason.Episodes;
+                        //$('.loader').remove();
 
-                        $.each(contSeason.Episodes, function(index, episode){
-                            element.append("<li class='main-episodes__item'><p class='main-episodes__name'>"+ episode.Title +"</p><a href='' class='main-episodes__link'><i class='small material-icons'>check</i></a></li>");
-                        });
+                        /*$.each(contSeason.Episodes, function(index, episode){
+                            element.append("<li class='main-episodes__item'><p class='main-episodes__name'>"+ episode.Title +"</p><a href='' @click.prevent='teste()' class='main-episodes__link'><i class='small material-icons'>check</i></a></li>");
+                        });*/
 
                         $('html, body').stop().animate({scrollTop: $('#season' + season).parent().offset().top - 55}, 1000);
                     }
@@ -98,23 +100,23 @@ let appVue = new Vue({
             }
         },
 
-        addItem: function(id){
+        checkEpisode: function(titulo, id_serie, season, id_episode){
             let self = this;
             $.ajax({
                 url: self.wpAjax,
                 type: 'POST',
                 data:{
-                    'action': 'save_item',
-                    'imdbId': id,
+                    'action': 'save_episode',
+                    'titulo': titulo,
+                    'id_serie': id_serie,
+                    'id_episode': id_episode,
                     'author': self.user
                 },
                 success: function(response){
                     if(response){
-                        self.showSearch = false;
-                        self.searchClass = true;
-                        self.loadCards = true;
+                        //self.loadSeason(id_serie, season);
                         M.toast({
-                            html: 'Item cadastrado na Biblioteca.',
+                            html: 'Episódio marcado como assistido.',
                             diplayLength: 6000,
                             classes: 'rounded'
                         });

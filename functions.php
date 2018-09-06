@@ -30,4 +30,24 @@ function save_item(){
 }
 add_action( 'wp_ajax_nopriv_save_item', 'save_item' );
 add_action( 'wp_ajax_save_item', 'save_item' );
+
+// Ação de callback do Ajax
+function save_episode(){
+	$idEpisode = wp_insert_post( array(
+		'post_status' => 'publish',
+		'post_title' => $_POST['titulo'], 
+		'post_author' => $_POST['author'], 
+		'post_type' => 'episodes'
+	));
+	update_post_meta($idEpisode, 'id_serie', $_POST['id_serie']);
+	update_post_meta($idEpisode, 'id_episode', $_POST['id_episode']);
+
+	wp_publish_post($idEpisode);
+	clean_post_cache($idEpisode);
+
+	echo (get_post_status($idEpisode) == 'publish') ? 'true' : 'false';
+  	die();
+}
+add_action( 'wp_ajax_nopriv_save_episode', 'save_episode' );
+add_action( 'wp_ajax_save_episode', 'save_episode' );
 ?>

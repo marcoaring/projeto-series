@@ -43,11 +43,25 @@
 			height: 0px;
 
 			.main-episodes{
-				&__item{
+				&__link{
 					display: flex;
     				justify-content: space-between;
     				align-items: center;
     				margin: 10px 0px;
+    				color: #000000;
+
+    				.material-icons{
+    					color: #2196F3;
+    				}
+				}
+				
+				&__name{ font-size: 18px; }
+
+				.green-text{
+					.small{ 
+						text-transform: uppercase;
+    					font-size: 12px;
+    				}
 				}
 			}
 		}
