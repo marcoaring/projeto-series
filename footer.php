@@ -25,11 +25,14 @@
 			<footer class="main-footer blue">
 				<nav class="navigation">
 					<ul class="navigation__list">
-						<li class="navigation__item navigation__item--active">
-							<a href="" class="navigation__link"><i class="material-icons">live_tv</i>Séries</a>
+						<li class="navigation__item <?php echo ($_GET['type'] == '') ? 'navigation__item--active' : ''; ?>">
+							<a href="<?php echo home_url(); ?>" class="navigation__link"><i class="material-icons">account_balance</i>Biblioteca</a>
 						</li>
-						<li class="navigation__item">
-							<a href="" class="navigation__link"><i class="material-icons">movie</i>Filmes</a>
+						<li class="navigation__item <?php echo ($_GET['type'] == 'series') ? 'navigation__item--active' : ''; ?>">
+							<a href="<?php echo home_url('/?type=series'); ?>" class="navigation__link"><i class="material-icons">live_tv</i>Séries</a>
+						</li>
+						<li class="navigation__item <?php echo ($_GET['type'] == 'movie') ? 'navigation__item--active' : ''; ?>">
+							<a href="<?php echo home_url('/?type=movie'); ?>" class="navigation__link"><i class="material-icons">movie</i>Filmes</a>
 						</li>
 					</ul>
 				</nav>

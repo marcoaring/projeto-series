@@ -38,8 +38,13 @@ let appVue = new Vue({
 
         loadPosts: function(){
             let self = this;
+            let type = this.getUrlParameter('type');
+            let filter = (type) ? '&filter[meta_key]=categoria_imdb&filter[meta_value]=' + type : '';
+
+            console.log(type);
+
             $.ajax({
-                url: self.wpApi + "entretenimento?author=" + self.user,
+                url: self.wpApi + "entretenimento?author=" + self.user + filter,
                 success: function(result){
                     let id = '';
 
@@ -130,6 +135,32 @@ let appVue = new Vue({
             });
         },
 
+        addItem: function(id){
+            let self = this;
+            $.ajax({
+                url: self.wpAjax,
+                type: 'POST',
+                data:{
+                    'action': 'save_item',
+                    'imdbId': id,
+                    'author': self.user
+                },
+
+                success: function(response){
+                    if(response){
+                        self.showSearch = false;
+                        self.searchClass = true;
+                        self.loadCards = true;
+                        M.toast({
+                            html: 'Item cadastrado na Biblioteca.',
+                            diplayLength: 6000,
+                            classes: 'rounded'
+                        });
+                    }
+                }
+            });
+        },
+        
         getUrlParameter: function(sParam){
             let sPageURL = decodeURIComponent(window.location.search.substring(1)),
             sURLVariables = sPageURL.split('&'), sParameterName, i;
