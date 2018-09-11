@@ -43,7 +43,7 @@
 			height: 0px;
 
 			.main-episodes{
-				&__link{
+				&__link, &__watched{
 					display: flex;
     				justify-content: space-between;
     				align-items: center;
@@ -52,6 +52,11 @@
 
     				.material-icons{
     					color: #2196F3;
+    				}
+
+    				.tag-watched{
+    					font-size: 11px;
+    					text-transform: uppercase;
     				}
 				}
 				

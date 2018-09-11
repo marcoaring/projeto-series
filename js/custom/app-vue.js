@@ -79,18 +79,23 @@ let appVue = new Vue({
 
                 $.ajax({
                     url: self.imdbApi + "i=" + id + "&Season=" + season,
-                    /*beforeSend: function(){
-                        element.append("<span class='loader'></span>");
-                    },*/
 
                     success: function(contSeason){
                         self.episodes = [];
                         self.episodes = contSeason.Episodes;
-                        //$('.loader').remove();
 
-                        /*$.each(contSeason.Episodes, function(index, episode){
-                            element.append("<li class='main-episodes__item'><p class='main-episodes__name'>"+ episode.Title +"</p><a href='' @click.prevent='teste()' class='main-episodes__link'><i class='small material-icons'>check</i></a></li>");
-                        });*/
+                        $.each(self.episodes, function(index, episode){
+                            $.ajax({
+                                url: self.wpApi + "episodes/?filter[meta_key]=id_episode&filter[meta_value]=" + episode.imdbID,
+                                success: function(resultEpisode){
+                                    if(resultEpisode.length > 0){
+                                        self.$set(self.episodes[index], 'watched', true);
+                                    } else{
+                                        self.$set(self.episodes[index], 'watched', false);
+                                    }
+                                }
+                            });
+                        });
 
                         $('html, body').stop().animate({scrollTop: $('#season' + season).parent().offset().top - 55}, 1000);
                     }
@@ -100,7 +105,7 @@ let appVue = new Vue({
             }
         },
 
-        checkEpisode: function(titulo, id_serie, season, id_episode){
+        checkEpisode: function(titulo, id_episode, season, id_serie){
             let self = this;
             $.ajax({
                 url: self.wpAjax,
@@ -114,7 +119,7 @@ let appVue = new Vue({
                 },
                 success: function(response){
                     if(response){
-                        //self.loadSeason(id_serie, season);
+                        self.loadSeason(id_serie, season);
                         M.toast({
                             html: 'Episódio marcado como assistido.',
                             diplayLength: 6000,
